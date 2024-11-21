@@ -1,0 +1,11 @@
+---
+- name: Start nginx container
+  community.docker.docker_container:
+    name: "{{ container_name }}"
+    image: "{{ container_image }}"
+    state: started
+    recreate: true
+    published_ports:
+      - "{{ published_ports }}"
+    volumes:
+      - "{{ html_directory }}:/usr/share/nginx/html"

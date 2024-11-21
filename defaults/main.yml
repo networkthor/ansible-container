@@ -1,0 +1,6 @@
+---
+env_name: local
+html_directory: /etc/html
+container_name: test-webserver
+container_image: nginx:latest
+published_ports: 80:80

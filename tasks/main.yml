@@ -1,0 +1,12 @@
+---
+- name: Create html directory
+  ansible.builtin.file:
+    path: "{{ html_directory }}"
+    state: directory
+
+- name: Copy file with owner and permissions
+  template:
+    src: ./templates/nginx-html.j2
+    dest: "{{ html_directory }}/index.html"
+  notify:
+    - Start nginx container
